@@ -18,7 +18,6 @@ class Auth extends CI_Controller
         if ($this->form_validation->run('login') == false) {
             $this->load->view('auth/login');
         } else {
-
             $email = $this->input->post('email');
             $password = $this->input->post('password');
 
@@ -34,7 +33,7 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($data);
 
                     if ($user['role_id'] == 1) {
-                        echo "halaman admin";
+                        redirect('admin');
                     } else {
                         redirect('customer');
                     }
