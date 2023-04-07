@@ -22,4 +22,5 @@ class M_product extends CI_Model
             ->get()
             ->row_array();
     }
+
 }

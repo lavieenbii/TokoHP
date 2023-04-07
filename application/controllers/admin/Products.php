@@ -23,6 +23,8 @@ class Products extends CI_Controller
 		if ($validation->run()) {
 			$product->save();
 			$this->session->set_flashdata('success', 'Berhasil disimpan');
+		}else {
+			$this->session->set_flashdata('error', 'Gagal disimpan');
 		}
 
 		$this->load->view('admin/product/new');

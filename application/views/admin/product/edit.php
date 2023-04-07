@@ -37,7 +37,15 @@
 						<!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
 							oleh controller tempat vuew ini digunakan. Yakni index.php/admin/products/edit/ID --->
 
-							<input type="hidden" name="id" value="<?php echo $product->product_id?>" />
+							<input type="hidden" name="id" value="<?php echo $product->id?>" />
+							<div class="form-group">
+								<label for="admin_id">Admin_id*</label>
+								<input class="form-control <?php echo form_error('admin_id') ? 'is-invalid':'' ?>"
+								 type="text" name="admin_id" placeholder="Product name" value="<?php echo $product->admin_id ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('admin_id') ?>
+								</div>
+							</div>
 
 							<div class="form-group">
 								<label for="name">Name*</label>
@@ -58,7 +66,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">Description*</label>
+								<label for="name">Image*</label>
 								<textarea class="form-control <?php echo form_error('description') ? 'is-invalid':'' ?>"
 								 name="description" placeholder="Product description..."><?php echo $product->description ?></textarea>
 								<div class="invalid-feedback">

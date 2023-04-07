@@ -25,9 +25,10 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
+										<th>Admin id</th>
 										<th>Name</th>
 										<th>Price</th>
-										<th>Description</th>
+										<th>Image</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -35,17 +36,20 @@
 									<?php foreach ($products as $product): ?>  
 									<tr>
 										<td width="150">
+											<?php echo $product->admin_id ?>
+										</td>
+										<td width="150">
 											<?php echo $product->name ?>
 										</td>
 										<td>
 											<?php echo $product->price ?>
 										</td>
 										<td class="small">
-											<?php echo substr($product->description, 0, 120) ?>...</td>
+											<?php echo substr($product->image, 0, 120) ?>...</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/products/edit/'.$product->product_id) ?>"
+											<a href="<?php echo site_url('admin/products/edit/'.$product->id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											 <a href="<?php echo site_url('admin/products/delete/'.$product->product_id) ?>"><i class="fas fa-trash"></i> delete</a>
+											 <a href="<?php echo site_url('admin/products/delete/'.$product->id) ?>"><i class="fas fa-trash"></i> delete</a>
 										</td>
 									</tr>
 									<?php endforeach; ?>

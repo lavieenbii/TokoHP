@@ -29,6 +29,15 @@
 						<a href="<?php echo site_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
+							<form action="<?php base_url('admin/product/add') ?>" method="post" enctype="multipart/form-data" >
+							<div class="form-group">
+								<label for="name">Admin id*</label>
+								<input class="form-control <?php echo form_error('admin_id') ? 'is-invalid':'' ?>"
+								 type="text" name="admin_id" placeholder="admin_id" />
+								<div class="invalid-feedback">
+									<?php echo form_error('admin_id') ?>
+								</div>
+							</div>
 
 						<form action="<?php base_url('admin/product/add') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
@@ -50,11 +59,11 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">Description*</label>
-								<textarea class="form-control <?php echo form_error('description') ? 'is-invalid':'' ?>"
-								 name="description" placeholder="Product description..."></textarea>
+								<label for="name">Image*</label>
+								<input class="form-control-file <?php echo form_error('image') ? 'is-invalid':'' ?>"
+								 type="text" name="image" placeholder="Product name" />
 								<div class="invalid-feedback">
-									<?php echo form_error('description') ?>
+									<?php echo form_error('image') ?>
 								</div>
 							</div>
 
