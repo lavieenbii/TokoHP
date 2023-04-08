@@ -13,6 +13,7 @@ class M_order extends CI_Model
             ->select(['product.id', 'product.name AS product_name', 'product.price', 'product.image', 'user.name AS admin_name', 'order_product.status'])
             ->from('order_product')
             ->join('product', 'product.id = order_product.product_id')
+            ->join('product', 'product.name = order.product_name')
             ->join('user', 'user.id = product.admin_id')
             ->where('order_product.buyer_id', $buyerId)
             ->get()

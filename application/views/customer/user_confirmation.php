@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TokoHp - Home</title>
+    <title>TokoHp - My Product</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -58,7 +58,7 @@
                             <a class="collapse-item" href="<?= base_url('customer/basket') ?>">Produk Saya</a>
                         </div>
                     </div>
-                </li>
+                    </li>
                    <li class="nav-item dropdown test-white <?php echo $this->uri->segment(2) == 'products' ? 'active': '' ?>">
                     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -70,8 +70,9 @@
                 </div>
 
                 </li>
+                </li>
             </div>
-        </div>
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -119,8 +120,52 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-
+                    <h1 class="h3 mb-4 text-gray-800">Produk sudah dibeli</h1>
+                          <div class="table-responsive">
+							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+								<thead>
+									<tr>
+										<th>id</th>
+										<th>Product id</th>
+										<th>Buyer id</th>
+										<th>Status</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($order_products as $order_product): ?>  
+									<tr>
+										<td width="150">
+											<?php echo $order_product->id ?>
+										</td>
+										<td width="150">
+											<?php echo $order_product->product_id ?>
+										</td>
+                                        <td>
+											<?php echo $order_product->buyer_id ?>
+										</td>
+										<td>
+											<?php if($order_product->status == 0) {
+                                                echo "Pesana sedang diproses";
+                                            } else {
+                                                echo "Pesanan sudah diterima";
+                                            } ?>
+										</td>
+                                        <td align="center">
+                                            <?php if ($order_product->status == 0): ?>
+											    <a href="<?php echo site_url('customer/user_confirmation/customer_confirmation/'.$order_product->id) ?>" 
+                                                    class="text-success btn btn-small">
+                                                <i class="fas fa-check"></i>Pesanan Diterima</a>
+                                            <?php else: ?>
+                                                <a href="<?php echo site_url('customer/delete/'.$order_product->product_id) ?>" 
+                                                    class="text-danger btn btn-small">
+                                                <i class="fas fa-trash"></i> Unconfirm</a>
+                                            <?php endif; ?>
+										</td>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div>
                 </div>
                 <!-- /.container-fluid -->
 

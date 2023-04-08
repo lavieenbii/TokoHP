@@ -58,5 +58,6 @@ $route['customer/product'] = 'customer/product';
 $route['customer/product/(:num)'] = 'customer/product/detail/$1';
 $route['customer/order'] = 'customer/order';
 $route['customer/basket'] = 'customer/basket';
+$route['customer/user_confirm'] = 'customer/user_confirmation';
 $route['admin'] = 'admin/products';
 $route['admin/checkouts'] = 'admin/checkouts';
